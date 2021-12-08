@@ -81,6 +81,7 @@ begin
     deplacerCurseurZoneAction(3);write('     1/ Vous reposer dans votre lit');
     deplacerCurseurZoneAction(4);write('     2/ Regarder dans votre coffre');
     deplacerCurseurZoneAction(5);write('     3/ Sortir de votre chambre');
+    deplacerCurseurZoneAction(5);write('     4/ Aller à la cantine');
 
     deplacerCurseurZoneResponse();
     readln(choix);
@@ -90,6 +91,7 @@ begin
        '1' : chambrePremiereFois := repos();
        '2' : chambrePremiereFois := coffreEquipement();
        '3' : chambrePremiereFois := ville;
+       '4' : chambrePremiereFois := cantine;
   end;
 
 end;
