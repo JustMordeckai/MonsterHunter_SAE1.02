@@ -33,7 +33,6 @@ function getMonstre(i : integer) : TMonstre;
 
 
 
-
 implementation
 var
   monstres : TCatalogueMonstre;              //Catalogue des monstres
