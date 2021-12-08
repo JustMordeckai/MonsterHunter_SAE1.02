@@ -8,8 +8,8 @@ interface
 type
   materiaux = (aucun,fer,Os,Ecaille,Obsidienne);                                   //Matériaux pour les armes et armures
   emplacementArmure = (Casque,Torse,Gants,Jambieres,Bottes);            //liste des emplacements d'armures
-  TArmures = array[0..4] of materiaux;                                  //Armure (5 slots)
-  TCoffreArmures = array[0..4,1..ord(high(materiaux))] of boolean;      //Coffres - armures (pour chaque couple matériaux, slots, un booléen représentant si le joueur possède cet objet dans son coffre)
+  TArmures = array[0..5] of materiaux;                                  //Armure (5 slots)
+  TCoffreArmures = array[0..5,1..ord(high(materiaux))] of boolean;      //Coffres - armures (pour chaque couple matériaux, slots, un booléen représentant si le joueur possède cet objet dans son coffre)
   TCoffreArmes = array[1..ord(high(materiaux))] of boolean;             //Coffres - armes
 
 //----- FONCTIONS ET PROCEDURES -----
@@ -87,7 +87,7 @@ var
   i : integer;
 begin
   e:=0;
-  for i:=0 to 4 do
+  for i:=0 to 5 do
        e += ord(armures[i])*0.5;
   encaissement := round(e);
 end;

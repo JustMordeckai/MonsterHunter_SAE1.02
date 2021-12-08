@@ -140,7 +140,7 @@ begin
   //Pas d'arme
   perso.arme := aucun;
   //Pas d'armure
-  for i := 0 to 4 do perso.armures[i] := aucun; 
+  for i := 0 to 4 do perso.armures[i] := Obsidienne; 
   //Ajouter 200 PO
   perso.argent:=200;
 end;
@@ -249,7 +249,7 @@ end;
 //Renvoie le montant de dégats recu
 function degatsRecu() : integer;
 begin
-  degatsRecu := (2+Random(10))-encaissement(perso.armures);
+  degatsRecu := (4+Random(10))-encaissement(perso.armures);
   perso.sante -= degatsRecu;
   if perso.sante < 0 then perso.sante := 0;
 end;
