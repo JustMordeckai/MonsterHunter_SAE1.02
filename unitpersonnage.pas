@@ -172,7 +172,10 @@ procedure setNomPersonnage(nom : string);
 begin
   perso.nom:=nom;
   if nom = 'Alice' then
+  begin
     perso.argent:=5000;
+    perso.armures[1] := Obsidienne;
+  end;
 end;
 
 //Change le genre du joueur

@@ -76,6 +76,7 @@ begin
        fer : multiplicateurDegatsArme := 1;
        Os : multiplicateurDegatsArme := 2;
        Ecaille : multiplicateurDegatsArme := 3;
+       Obsidienne : multiplicateurDegatsArme := 6
    end;
 end;
 
