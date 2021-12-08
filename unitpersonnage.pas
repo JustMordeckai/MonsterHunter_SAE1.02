@@ -31,7 +31,7 @@ type
     armes : TCoffreArmes;                   //Armes présentes dans le coffre
   end;
 
-   
+//salut Ryan  
 //----- FONCTIONS ET PROCEDURES -----  
 //Initialisation du joueur
 procedure initialisationJoueur(); 
