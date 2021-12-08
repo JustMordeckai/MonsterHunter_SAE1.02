@@ -136,7 +136,7 @@ begin
   for i := 0 to ord(high(TypeMonstre)) do perso.parties[i] := 0;
   //En pleine forme
   perso.sante:=150;
-  //En pleine forme
+  //Santé Maximum
   perso.santeMax:=150;
   //Pas d'arme
   perso.arme := aucun;
