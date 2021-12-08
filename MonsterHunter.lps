@@ -56,10 +56,9 @@
         <Filename Value="unitpersonnage.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitPersonnage"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="10"/>
         <TopLine Value="126"/>
-        <CursorPos X="35" Y="147"/>
+        <CursorPos X="29" Y="140"/>
         <UsageCount Value="125"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -77,9 +76,10 @@
         <Filename Value="unitchambre.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitChambre"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="14"/>
-        <TopLine Value="191"/>
-        <CursorPos Y="30"/>
+        <TopLine Value="30"/>
+        <CursorPos X="33" Y="51"/>
         <UsageCount Value="88"/>
         <Loaded Value="True"/>
       </Unit7>
@@ -161,7 +161,7 @@
         <Loaded Value="True"/>
       </Unit15>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="unitlieu.pas"/>
         <Caret Line="24" Column="15" TopLine="2"/>
@@ -272,16 +272,12 @@
       </Position27>
       <Position28>
         <Filename Value="unitpersonnage.pas"/>
-        <Caret Line="99" TopLine="301"/>
+        <Caret Line="144" Column="23" TopLine="126"/>
       </Position28>
       <Position29>
         <Filename Value="unitpersonnage.pas"/>
-        <Caret Line="144" Column="23" TopLine="126"/>
-      </Position29>
-      <Position30>
-        <Filename Value="unitpersonnage.pas"/>
         <Caret Line="143" Column="6" TopLine="126"/>
-      </Position30>
+      </Position29>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -55,7 +55,7 @@ function chambrePremiereFois() : typeLieu;
 var choix : string;
 begin
   choix := '';
-  while (choix <> '1') and (choix <> '2') and (choix <> '3') do
+  while (choix <> '1') and (choix <> '2') and (choix <> '3') and (choix <> '4') do
   begin
     afficherInterfacePrincipale();
     afficherLieu('Dans les vapes');
@@ -81,7 +81,7 @@ begin
     deplacerCurseurZoneAction(3);write('     1/ Vous reposer dans votre lit');
     deplacerCurseurZoneAction(4);write('     2/ Regarder dans votre coffre');
     deplacerCurseurZoneAction(5);write('     3/ Sortir de votre chambre');
-    deplacerCurseurZoneAction(5);write('     4/ Aller à la cantine');
+    deplacerCurseurZoneAction(6);write('     4/ Aller à la cantine');
 
     deplacerCurseurZoneResponse();
     readln(choix);
@@ -102,7 +102,7 @@ function chambreHub() : typeLieu;
 var choix : string;
 begin
   choix := '';
-  while (choix <> '1') and (choix <> '2') and (choix <> '3') do
+  while (choix <> '1') and (choix <> '2') and (choix <> '3') and (choix <> '4') do
   begin
     afficherInterfacePrincipale();
     afficherLieu('Dans votre chambre');
@@ -124,15 +124,17 @@ begin
     deplacerCurseurZoneAction(3);write('     1/ Vous reposer dans votre lit');
     deplacerCurseurZoneAction(4);write('     2/ Regarder dans votre coffre');
     deplacerCurseurZoneAction(5);write('     3/ Sortir de votre chambre');
+     deplacerCurseurZoneAction(6);write('     4/ Aller à la cantine');
 
     deplacerCurseurZoneResponse();
     readln(choix);
   end;
 
   case choix of
-       '1' : chambreHub := repos();
-       '2' : chambreHub := coffreEquipement(); 
-       '3' : chambreHub := ville;
+     '1' : chambreHub := repos();
+     '2' : chambreHub := coffreEquipement(); 
+     '3' : chambreHub := ville;
+     '4' : chambreHub := cantine;
   end;
 
 end;
