@@ -23,7 +23,7 @@ type
     sante : integer;                        //Vie du personnage
     argent : integer;                       //Argent du personnage
     buff : bonus;                           //Buff du joueur
-    santeMax : Integer;
+    santeMax : Integer;                     //Vie maximale du personnage
   end;
 
   //Type représentant un coffre d'équipement
