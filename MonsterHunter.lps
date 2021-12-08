@@ -8,8 +8,7 @@
       <Unit0>
         <Filename Value="MonsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <CursorPos X="13" Y="21"/>
+        <CursorPos X="35" Y="21"/>
         <UsageCount Value="127"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -53,10 +52,12 @@
         <Filename Value="unitpersonnage.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitPersonnage"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="246"/>
-        <CursorPos X="37" Y="253"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="129"/>
+        <CursorPos X="49" Y="154"/>
         <UsageCount Value="125"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="unitobjet.pas"/>
@@ -146,7 +147,12 @@
         <UsageCount Value="63"/>
       </Unit15>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="1">
+      <Position1>
+        <Filename Value="MonsterHunter.lpr"/>
+        <Caret Line="21" Column="35"/>
+      </Position1>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode="default"/>
