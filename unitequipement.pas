@@ -6,7 +6,7 @@ unit unitEquipement;
 interface        
 //----- TYPES -----
 type
-  materiaux = (aucun,fer,Os,Ecaille);                                   //Matériaux pour les armes et armures
+  materiaux = (aucun,fer,Os,Ecaille,Obsidienne);                                   //Matériaux pour les armes et armures
   emplacementArmure = (Casque,Torse,Gants,Jambieres,Bottes);            //liste des emplacements d'armures
   TArmures = array[0..4] of materiaux;                                  //Armure (5 slots)
   TCoffreArmures = array[0..4,1..ord(high(materiaux))] of boolean;      //Coffres - armures (pour chaque couple matériaux, slots, un booléen représentant si le joueur possède cet objet dans son coffre)
@@ -51,6 +51,7 @@ begin
         fer : armureToString += ' en fer';
         Os : armureToString += ' en os';
         Ecaille : armureToString += ' en évaille';
+        Obsidienne : armureToString += ' en obsidienne';
     end;
   end;
 end;
@@ -63,6 +64,7 @@ begin
        fer : armeToString := 'Grande épée en fer';
        Os : armeToString := 'Grande épée en os'; 
        Ecaille : armeToString := 'Grande épée en écailles';
+       Obsidienne : armeToString := 'Grande épée en Obsidienne';
    end;
 end;
 
