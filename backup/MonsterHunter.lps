@@ -58,8 +58,8 @@
         <UnitName Value="unitPersonnage"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="10"/>
-        <TopLine Value="126"/>
-        <CursorPos X="35" Y="147"/>
+        <TopLine Value="186"/>
+        <CursorPos X="33" Y="197"/>
         <UsageCount Value="125"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -78,8 +78,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitChambre"/>
         <EditorIndex Value="14"/>
-        <TopLine Value="191"/>
-        <CursorPos Y="30"/>
+        <TopLine Value="120"/>
+        <CursorPos X="20" Y="140"/>
         <UsageCount Value="88"/>
         <Loaded Value="True"/>
       </Unit7>
@@ -272,15 +272,15 @@
       </Position27>
       <Position28>
         <Filename Value="unitpersonnage.pas"/>
-        <Caret Line="99" TopLine="301"/>
+        <Caret Line="144" Column="23" TopLine="126"/>
       </Position28>
       <Position29>
         <Filename Value="unitpersonnage.pas"/>
-        <Caret Line="144" Column="23" TopLine="126"/>
+        <Caret Line="143" Column="6" TopLine="126"/>
       </Position29>
       <Position30>
-        <Filename Value="unitpersonnage.pas"/>
-        <Caret Line="143" Column="6" TopLine="126"/>
+        <Filename Value="unitchambre.pas"/>
+        <Caret Line="51" Column="33" TopLine="30"/>
       </Position30>
     </JumpHistory>
     <RunParams>

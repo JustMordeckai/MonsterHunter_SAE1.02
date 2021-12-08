@@ -22,7 +22,8 @@ type
     armures : TArmures;                     //Armures
     sante : integer;                        //Vie du personnage
     argent : integer;                       //Argent du personnage
-    buff : bonus;                           //Buff du joueur
+    buff : bonus;
+    santeMax : Integer;                           //Buff du joueur
   end;
 
   //Type représentant un coffre d'équipement
@@ -134,7 +135,9 @@ begin
   //Inventaire de partie vide
   for i := 0 to ord(high(TypeMonstre)) do perso.parties[i] := 0;
   //En pleine forme
-  perso.sante:=100;
+  perso.sante:=150;
+  //Santé maximum
+  perso.santeMax:=150;
   //Pas d'arme
   perso.arme := aucun;
   //Pas d'armure
@@ -196,7 +199,7 @@ end;
 //Dormir dans son lit
 procedure dormir();
 begin
-  perso.sante:=100;
+  perso.sante:=perso.santeMax;
 end;
 
 //Change l'arme du joueur
@@ -256,18 +259,18 @@ begin
   perso.parties[i] += 1;
 end;
 
-//Soigne le personnage de 50pv
+//Soigne le personnage de 50pv 
 procedure soigner();
 begin
   perso.sante += 50;
-  if(perso.sante > 100) then perso.sante := 100;
+  if(perso.sante > perso.santeMax) then perso.sante := perso.santeMax;
 end;
 
 //Soigne le personnage de 1pv
 procedure regen();
 begin
   perso.sante += 1;
-  if(perso.sante > 100) then perso.sante := 100;
+  if(perso.sante > perso.santeMax) then perso.sante := perso.santeMax;
 end;
 
 //Supprime 1 objet
