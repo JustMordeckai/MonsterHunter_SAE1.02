@@ -135,7 +135,7 @@ begin
   //Inventaire de partie vide
   for i := 0 to ord(high(TypeMonstre)) do perso.parties[i] := 0;
   //En pleine forme
-  perso.sante:=150;
+  perso.sante:=100;
   //Santé Maximum
   perso.santeMax:=150;
   //Pas d'arme
