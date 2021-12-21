@@ -1,15 +1,10 @@
 A faire :
 
-PARTIE 0 : (TP)
+BUG
 
-- Dans unitForge modif fabricationEquipement pour afficher nouvelle procédure
-
-Sur les recettes : Créer une nouvelle recette :
-- Dans buff (je crois que c'est ça de tête) ajouter qu'il existe proba 10% dégats = doublé
-- Dans unitPersonnage ajouter nouveau bonus Critique
-- Mtn les dégats c'est 20% pas 10%
-- Dans choixRecette dans unitCantine : 3ème recette : 'Cuisse de poulet' Buff : 'Critique'
-- Apparemment pb de bonus à regarder en testant.
+- Renseigner les données du perso - ca crash
+- Le joueur se soigne toujours tout seul quand il attaque et donc le monstre lui n'attaque pas
+quand on se soigne aucun sens : PROBLEME REGLE
 
 PARTIE 1 :
 1. Intégrer les recettes dans le jeu.
