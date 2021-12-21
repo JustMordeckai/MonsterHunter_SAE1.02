@@ -19,7 +19,7 @@ c'est celui qui m'a le plus marqué).
 
 PARTIE 2 :
 - Gagner de l'exp donc niveau. Niveau effecte capacités et objets fabricables à la forge
-- Compétence : Nouveau lieu, camps d'entrainement - AU MOINS 2 compétences (donc 2) / or.
+- Compétence : Nouveau lieu, camps d'entrainement - AU MOINS 2 compétences (donc 2) / or. - EN COURS
 - Sauvegarde : possibilité de sauvegarder depuis chambre et chargeable depuis menu (Bastien)
 
 COMPTE RENDU - DOC TECHNIQUE
