@@ -8,6 +8,7 @@
       <Unit0>
         <Filename Value="MonsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <CursorPos X="35" Y="21"/>
         <UsageCount Value="127"/>
         <Loaded Value="True"/>
@@ -52,7 +53,6 @@
         <Filename Value="unitpersonnage.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitPersonnage"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="129"/>
         <CursorPos X="49" Y="154"/>

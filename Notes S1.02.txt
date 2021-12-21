@@ -2,8 +2,6 @@ A faire :
 
 PARTIE 0 : (TP)
 
-
-- Nouvelle procédure afficherInterfaceForge même principe que afficherInterfacePrincipale
 - Dans unitForge modif fabricationEquipement pour afficher nouvelle procédure
 
 Sur les recettes : Créer une nouvelle recette :
