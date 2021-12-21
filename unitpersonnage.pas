@@ -295,6 +295,7 @@ begin
      case mat of
           os : peuxForger := peuxForger AND (perso.parties[0]>4);
           Ecaille : peuxForger := peuxForger AND (perso.parties[1]>4);
+          Obsidienne : peuxForger := peuxForger AND (perso.parties[1]>49);
      end;
 end;
 
@@ -308,6 +309,7 @@ begin
      case mat of
           os : perso.parties[0] -= 5;
           Ecaille : perso.parties[1] -= 5;
+          Obsidienne : perso.parties[1] -= 50;
      end;
 
      //Ajoute l'arme dans le coffre
@@ -324,6 +326,7 @@ begin
      case mat of
           os : perso.parties[0] -= 5;
           Ecaille : perso.parties[1] -= 5;
+          Obsidienne : perso.parties[1] -= 50;
      end;
 
      //Ajoute l'armure dans le coffre

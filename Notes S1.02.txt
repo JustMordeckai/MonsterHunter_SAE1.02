@@ -2,8 +2,6 @@ A faire :
 
 PARTIE 0 : (TP)
 
-       -> recetteToString (unitEquipement) - 500 PO & 50 morceaux Pukei-Pukei
-       -> unitPersonnage modifier : peuxForger/forgerArme/forgerArmure pour obsédienne.
 - unitIHM : nouvelle procédure afficherCadreActionForge()
 procedure afficherCadreActionForge() ;
 begin
