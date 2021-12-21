@@ -3,15 +3,13 @@ A faire :
 BUG
 
 - Renseigner les données du perso - ca crash
-- Le joueur se soigne toujours tout seul quand il attaque et donc le monstre lui n'attaque pas
-quand on se soigne aucun sens : PROBLEME REGLE
 
 PARTIE 1 :
 1. Intégrer les recettes dans le jeu.
 Donc reprendre la gestion de la cantine. Implémenter le txt de la cantine, chargé directement
 du txt.
 - Réaliser un tri alphabétique
-- Rélaiser un tri buff
+- Réaliser un tri buff
 Permettre au joueur de sélectionner les recettes aussi donc cantineHub.
 
 - Donc création d'un type pour recette
