@@ -22,8 +22,8 @@ type
     armures : TArmures;                     //Armures
     sante : integer;                        //Vie du personnage
     argent : integer;                       //Argent du personnage
-    buff : bonus;
-    santeMax : Integer;                           //Buff du joueur
+    buff : bonus;                           //Buff du joueur
+    santeMax : Integer;                     //Vie maximale du personnage
   end;
 
   //Type représentant un coffre d'équipement
@@ -32,7 +32,6 @@ type
     armes : TCoffreArmes;                   //Armes présentes dans le coffre
   end;
 
-   
 //----- FONCTIONS ET PROCEDURES -----  
 //Initialisation du joueur
 procedure initialisationJoueur(); 
@@ -135,18 +134,15 @@ begin
   //Inventaire de partie vide
   for i := 0 to ord(high(TypeMonstre)) do perso.parties[i] := 0;
   //En pleine forme
-  perso.sante:=150;
-  //Santé maximum
+  perso.sante:=100;
+  //Santé Maximum
   perso.santeMax:=150;
   //Pas d'arme
   perso.arme := aucun;
   //Pas d'armure
-  for i := 0 to 4 do perso.armures[i] := aucun; 
+  for i := 0 to 4 do perso.armures[i] := Obsidienne; 
   //Ajouter 200 PO
-  if nom = 'Alice' then
-    perso.argent:=5000
-  else
-    perso.argent:=200;
+  perso.argent:=200;
 end;
 
 //Renvoie le personnage (lecture seul)
@@ -175,6 +171,11 @@ end;
 procedure setNomPersonnage(nom : string);
 begin
   perso.nom:=nom;
+  if nom = 'Alice' then
+  begin
+    perso.argent:=5000;
+    perso.armures[1] := Obsidienne;
+  end;
 end;
 
 //Change le genre du joueur
@@ -248,7 +249,7 @@ end;
 //Renvoie le montant de dégats recu
 function degatsRecu() : integer;
 begin
-  degatsRecu := (2+Random(10))-encaissement(perso.armures);
+  degatsRecu := (4+Random(10))-encaissement(perso.armures);
   perso.sante -= degatsRecu;
   if perso.sante < 0 then perso.sante := 0;
 end;
@@ -259,7 +260,7 @@ begin
   perso.parties[i] += 1;
 end;
 
-//Soigne le personnage de 50pv 
+//Soigne le personnage de 50pv
 procedure soigner();
 begin
   perso.sante += 50;
@@ -294,6 +295,7 @@ begin
      case mat of
           os : peuxForger := peuxForger AND (perso.parties[0]>4);
           Ecaille : peuxForger := peuxForger AND (perso.parties[1]>4);
+          Obsidienne : peuxForger := peuxForger AND (perso.parties[1]>49);
      end;
 end;
 
@@ -307,6 +309,7 @@ begin
      case mat of
           os : perso.parties[0] -= 5;
           Ecaille : perso.parties[1] -= 5;
+          Obsidienne : perso.parties[1] -= 50;
      end;
 
      //Ajoute l'arme dans le coffre
@@ -323,6 +326,7 @@ begin
      case mat of
           os : perso.parties[0] -= 5;
           Ecaille : perso.parties[1] -= 5;
+          Obsidienne : perso.parties[1] -= 50;
      end;
 
      //Ajoute l'armure dans le coffre
@@ -336,6 +340,7 @@ begin
        AucunB:bonusToString:='Aucun';
        Force:bonusToString:='Force';
        Regeneration:bonusToString:='Regénération';
+       Critique:bonusToString:='Coup critique';
   end;
 end;
 
