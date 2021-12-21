@@ -1,0 +1,55 @@
+A faire :
+
+PARTIE 0 : (TP)
+- Cheat-code : Alice, FAIT
+- SanteMax, FAIT
+- Possibilité d'aller à la cantine dans chambrePremiereFois et chambreHub à faire
+- Ajouté rang équipement pour obsédienne
+       -> Modif armureToString & armeToString
+       -> Multiplicateur de dégâts = 6
+       -> Cheat code (je crois que tu l'as fait ? je regarderais)
+       -> recetteToString (unitEquipement) - 500 PO & 50 morceaux Pukei-Pukei
+       -> unitPersonnage modifier : peuxForger/forgerArme/forgerArmure pour obsédienne.
+- unitIHM : nouvelle procédure afficherCadreActionForge()
+procedure afficherCadreActionForge() ;
+begin
+dessinerCadreXY(1,29,74,39,simple,white,black) ;
+dessinerCadreXY(74,35,198,35,simple,white,black) ;
+deplacerCurseurXY(74,36) ;write(' ') ;
+deplacerCurseurXY(74,37) ;write(' ') ;
+deplacerCurseurXY(74,38) ;write(' ') ;
+deplacerCurseurXY(74,39) ;write(#196) ;
+end ;       //pas copier coller ?
+- Nouvelle procédure afficherInterfaceForge même principe que afficherInterfacePrincipale
+- Dans unitForge modif fabricationEquipement pour afficher nouvelle procédure
+
+Sur les recettes : Créer une nouvelle recette :
+- Dans buff (je crois que c'est ça de tête) ajouter qu'il existe proba 10% dégats = doublé
+- Dans unitPersonnage ajouter nouveau bonus Critique
+- Mtn les dégats c'est 20% pas 10%
+- Dans choixRecette dans unitCantine : 3ème recette : 'Cuisse de poulet' Buff : 'Critique'
+- Apparemment pb de bonus à regarder en testant.
+
+PARTIE 1 :
+1. Intégrer les recettes dans le jeu.
+Donc reprendre la gestion de la cantine. Implémenter le txt de la cantine, chargé directement
+du txt.
+- Réaliser un tri alphabétique
+- Rélaiser un tri buff
+Permettre au joueur de sélectionner les recettes aussi donc cantineHub.
+
+- Donc création d'un type pour recette
+- Structure de données adaptée pour stocker l'esb des recettes.
+- Pour les tri choix entre tri par insertion/tri fusion/(en vrai j'avais pensé tri à bulle 
+c'est celui qui m'a le plus marqué).
+
+PARTIE 2 :
+- Gagner de l'exp donc niveau. Niveau effecte capacités et objets fabricables à la forge
+- Compétence : Nouveau lieu, camps d'entrainement - AU MOINS 2 compétences (donc 2) / or.
+- Sauvegarde : possibilité de sauvegarder depuis chambre et chargeable depuis menu (Bastien)
+
+COMPTE RENDU - DOC TECHNIQUE
+1 Explication détaillée et justifiée des structures de données utilisées pour la modif
+2 Une étude comparative des trois algorithmes de tris proposés
+3 Descriptif chacune des améliorations réalisées.
+4 Explications sur les choix structurels réalisés pour les différentes améliorations
