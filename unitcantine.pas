@@ -54,6 +54,8 @@ begin
     deplacerCurseurXY(70,9);write('(Force)');
     deplacerCurseurXY(30,10);write('2/ Un sauté de légume'); 
     deplacerCurseurXY(70,10);write('(Regénération)');
+    deplacerCurseurXY(30,11);write('3/ Cuisse de poulet');
+    deplacerCurseurXY(70,11);write('(Coup Critique');
 
     deplacerCurseurZoneAction(1);write('Que souhaitez-vous faire ?');
     deplacerCurseurZoneAction(3);write('     ?/ Commander un plat (entrer son numéro)');
@@ -69,7 +71,7 @@ begin
     else if(TryStrToInt(choix,choixNumber)) then
     begin
          //Si la recette existe, la manger
-         if(choixNumber > 0) and (choixNumber < 3) then manger(choixNumber);
+         if(choixNumber > 0) and (choixNumber < 4) then manger(choixNumber);
     end;
   end;
 
