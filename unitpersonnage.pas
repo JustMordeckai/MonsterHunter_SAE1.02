@@ -8,8 +8,8 @@ uses
     unitObjet,unitEquipement;
 //----- TYPES -----
 type
-  bonus = (AucunB,Force,Regeneration);       //Bonus de la cantinue
-  genre = (Masculin,Feminin,Autre);         //Genre du personnage
+  bonus = (AucunB,Force,Regeneration,Critique);       //Bonus de la cantinue
+  genre = (Masculin,Feminin,Autre);                   //Genre du personnage
 
   //Type représentant le personnage
   Personnage = record
@@ -250,7 +250,8 @@ end;
 function degatsRecu() : integer;
 begin
   degatsRecu := (4+Random(10))-encaissement(perso.armures);
-  perso.sante -= degatsRecu;
+  if degatsRecu < 0 then degatsRecu := 0
+  else perso.sante -= degatsRecu;
   if perso.sante < 0 then perso.sante := 0;
 end;
 
@@ -340,6 +341,7 @@ begin
        AucunB:bonusToString:='Aucun';
        Force:bonusToString:='Force';
        Regeneration:bonusToString:='Regénération';
+       Critique:bonusToString:='Coup critique';
   end;
 end;
 
