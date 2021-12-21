@@ -18,6 +18,10 @@ procedure afficherLieuSimple(nomLieu : string);
 procedure deplacerCurseurZoneAction(numLigne : integer); 
 //Positionne le curseur à la n-ième ligne de la zone d'action
 procedure deplacerCurseurZoneResponse();
+//Affichage du cadre d'action de la forge
+procedure afficherCadreActionForge();
+//Affiche l'interface de la forge
+procedure afficherInterfaceForge();
 
 
 
@@ -162,6 +166,33 @@ begin
   afficherCadreAction(); 
   //Cadre Lieu
   afficherCadreLieuEcranSimple();
+end;
+
+//Affichage du cadre d'action de la forge
+procedure afficherCadreActionForge();
+begin
+  dessinerCadreXY(1,29,74,39,simple,white,black);
+  dessinerCadreXY(74,35,198,35,simple,white,black);
+  deplacerCurseurXY(74,36);write(' ');
+  deplacerCurseurXY(74,37);write(' ');
+  deplacerCurseurXY(74,38);write(' ');
+  deplacerCurseurXY(74,39);write(#196);
+end;
+
+//Affiche l'interface de la forge
+procedure afficherInterfaceForge();
+begin
+  effacerEcran;  
+  //Cadre extérieur
+  afficherCadreExterieur();
+  //Cadre action
+  afficherCadreActionForge();
+  //Cadre réponse
+  afficherCadreResponse();
+  //Cadre latéral droit
+  afficherMenuLateralPersonnage();
+  //Cadre Lieu
+  afficherCadreLieuEcranSplit();  
 end;
 
 end.
