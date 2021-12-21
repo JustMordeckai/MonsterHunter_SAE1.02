@@ -66,6 +66,8 @@ begin
              begin
                   //Dégat du joueur
                   degatPerso := degatsAttaque();
+                  //Buff de Critique
+                  if(getPersonnage().buff = Critique) AND (random(100) < 20) then degatPerso := degatPerso*2;
                   //Buff de Force
                   if(getPersonnage().buff = Force) then degatPerso+=1;
                   monstre.pv -= degatPerso;
@@ -83,7 +85,6 @@ begin
                   //Récupération de partie
                   nbPartie := random(2);
                   if(nbPartie > 0) and (degatPerso > 0) then ajouterPartie(numMonstre);
-
              end
              //Potion
              else if(choix = '3') then
