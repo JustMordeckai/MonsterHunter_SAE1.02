@@ -64,7 +64,7 @@ begin
        fer : armeToString := 'Grande épée en fer';
        Os : armeToString := 'Grande épée en os'; 
        Ecaille : armeToString := 'Grande épée en écailles';
-       Obsidienne : armeToString := 'Grande épée en Obsidienne';
+       Obsidienne : armeToString := 'Grande épée en obsidienne';
    end;
 end;
 
@@ -99,6 +99,7 @@ begin
       fer : recetteToString:='(500 po)';
       os : recetteToString:='(500 po, 5 morceaux de Grand Jagras)';
       Ecaille : recetteToString:='(500 po, 5 morceaux de Pukei-Pukei)';
+      Obsidienne : recetteToString:='(500 po, 50 morceaux de Pukei-Pukei)';
   end;
 end;
 

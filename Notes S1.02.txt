@@ -1,13 +1,7 @@
 A faire :
 
 PARTIE 0 : (TP)
-- Cheat-code : Alice, FAIT
-- SanteMax, FAIT
-- Possibilité d'aller à la cantine dans chambrePremiereFois et chambreHub à faire
-- Ajouté rang équipement pour obsédienne
-       -> Modif armureToString & armeToString
-       -> Multiplicateur de dégâts = 6
-       -> Cheat code (je crois que tu l'as fait ? je regarderais)
+
        -> recetteToString (unitEquipement) - 500 PO & 50 morceaux Pukei-Pukei
        -> unitPersonnage modifier : peuxForger/forgerArme/forgerArmure pour obsédienne.
 - unitIHM : nouvelle procédure afficherCadreActionForge()
