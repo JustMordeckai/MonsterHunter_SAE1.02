@@ -2,7 +2,7 @@
 program MonsterHunter;
 
 uses UnitLieu, unitIHM, unitPersonnage, unitObjet, unitChambre, unitEquipement,
-  unitVille, unitMarchand, unitMonstre, unitChasse, unitCantine, unitForge;
+  unitVille, unitMarchand, unitMonstre, unitChasse, unitCantine, unitForge, unitCamps;
 
 var lieuEnCours : typeLieu;  //Lieu où se trouve le "joueur"
 

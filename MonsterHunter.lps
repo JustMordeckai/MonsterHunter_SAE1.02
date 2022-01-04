@@ -4,11 +4,12 @@
     <PathDelim Value="\"/>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="16">
+    <Units Count="17">
       <Unit0>
         <Filename Value="MonsterHunter.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="35" Y="21"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="37" Y="17"/>
         <UsageCount Value="127"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -16,10 +17,11 @@
         <Filename Value="unitlieu.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UnitLieu"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="9"/>
-        <CursorPos X="64" Y="28"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="33"/>
+        <CursorPos X="19" Y="44"/>
         <UsageCount Value="127"/>
+        <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="unitmenuprincipal.pas"/>
@@ -52,9 +54,8 @@
         <Filename Value="unitpersonnage.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitPersonnage"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="52" Y="12"/>
+        <CursorPos X="37" Y="20"/>
         <UsageCount Value="125"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -89,10 +90,11 @@
         <Filename Value="unitville.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitVille"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="39"/>
-        <CursorPos Y="25"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="50"/>
+        <CursorPos X="35" Y="68"/>
         <UsageCount Value="74"/>
+        <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="unitmarchand.pas"/>
@@ -145,8 +147,17 @@
         <CursorPos X="12" Y="71"/>
         <UsageCount Value="63"/>
       </Unit15>
+      <Unit16>
+        <Filename Value="unitcamps.pas"/>
+        <UnitName Value="unitCamps"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="19"/>
+        <CursorPos X="42" Y="41"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit16>
     </Units>
-    <JumpHistory Count="2" HistoryIndex="1">
+    <JumpHistory Count="10" HistoryIndex="9">
       <Position1>
         <Filename Value="MonsterHunter.lpr"/>
         <Caret Line="21" Column="35"/>
@@ -155,6 +166,38 @@
         <Filename Value="unitpersonnage.pas"/>
         <Caret Line="154" Column="49" TopLine="129"/>
       </Position2>
+      <Position3>
+        <Filename Value="unitpersonnage.pas"/>
+        <Caret Line="20" Column="37"/>
+      </Position3>
+      <Position4>
+        <Filename Value="unitville.pas"/>
+        <Caret Line="68" Column="35" TopLine="50"/>
+      </Position4>
+      <Position5>
+        <Filename Value="unitlieu.pas"/>
+        <Caret Line="63" Column="23" TopLine="33"/>
+      </Position5>
+      <Position6>
+        <Filename Value="unitlieu.pas"/>
+        <Caret Line="62" Column="19" TopLine="33"/>
+      </Position6>
+      <Position7>
+        <Filename Value="unitlieu.pas"/>
+        <Caret Line="55" Column="36" TopLine="33"/>
+      </Position7>
+      <Position8>
+        <Filename Value="unitlieu.pas"/>
+        <Caret Line="59" Column="31" TopLine="33"/>
+      </Position8>
+      <Position9>
+        <Filename Value="unitcamps.pas"/>
+        <Caret Line="50" Column="26" TopLine="19"/>
+      </Position9>
+      <Position10>
+        <Filename Value="unitcamps.pas"/>
+        <Caret Line="41" Column="42" TopLine="19"/>
+      </Position10>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
