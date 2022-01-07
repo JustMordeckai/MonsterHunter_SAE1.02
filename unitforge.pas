@@ -40,6 +40,9 @@ begin
 
         deplacerCurseurXY(4,7);write('--- ARMES ---');
         deplacerCurseurXY(80,7);write('--- ARMURES ---');
+        deplacerCurseurXY(4,19);write('Level 5 requis pour fabriquer des équipements en Os');
+        deplacerCurseurXY(4,20);write('Level 10 requis pour fabriquer des équipements en Évaille ');
+        deplacerCurseurXY(4,21);write('Level 15 requis pour fabriquer des équipements en Obsidiene');
 
         //Fabrication des ARMES
         for mat := 1 to ord(high(materiaux)) do

@@ -8,8 +8,8 @@ uses
     unitObjet,unitEquipement;
 //----- TYPES -----
 type
-  bonus = (AucunB,Force,Regeneration);       //Bonus de la cantinue
-  genre = (Masculin,Feminin,Autre);         //Genre du personnage
+  bonus = (AucunB,Force,Regeneration,Critique);       //Bonus de la cantinue
+  genre = (Masculin,Feminin,Autre);                   //Genre du personnage
 
   //Type représentant le personnage
   Personnage = record
@@ -22,8 +22,17 @@ type
     armures : TArmures;                     //Armures
     sante : integer;                        //Vie du personnage
     argent : integer;                       //Argent du personnage
+    experience : Real;                      //Experience du personnage
+    experienceMax : Real;                   //Experience Max du personnage
+    level : Integer;                        //Level du personnage
     buff : bonus;                           //Buff du joueur
     santeMax : Integer;                     //Vie maximale du personnage
+  end;
+
+  //Type représentant l'acquisition des compétences du joueur
+  Competence = record
+    bouleFeu : Boolean;                     //État d'acquisition de la compétence "Boule de feu"
+    eclair : Boolean;                       //État d'acquisition de la compétence "Éclair"
   end;
 
   //Type représentant un coffre d'équipement
@@ -41,6 +50,8 @@ procedure initialisationCoffre();
 function getPersonnage() : Personnage;
 //Renvoie le coffre (lecture seul)
 function getCoffre() : TCoffre;
+//Renvoie les compétences (lecture seul)
+function getCompetence() : Competence;
 //Transforme un Genre en chaine de caractères
 function genreToString(sexe : genre) : string;
 //Change le nom du joueur
@@ -85,6 +96,10 @@ procedure forgerArmure(slot : integer; mat : materiaux);
 function bonusToString(buff : bonus) : String;
 //Change le buff du joueur
 procedure setBuff(buff : bonus);
+//Apprend la compétence et retire ses pièces d'or
+procedure setCompetence(choix : integer);
+//Change l'expérience du joueur
+procedure setExperience(exp : Integer);
 
 
 
@@ -104,6 +119,7 @@ uses
 var
    perso : Personnage;                      //Le personnage
    coffre : TCoffre;                        //Le coffre de la chambre
+   compet : Competence;                        //Le coffre de la chambre
 
    
 //Initialisation du coffre de la chambre
@@ -137,10 +153,16 @@ begin
   perso.sante:=100;
   //Santé Maximum
   perso.santeMax:=150;
+  //Experience Joueur
+  perso.experience:=0;
+  //Experience Max Joueur
+  perso.experienceMax:=0;
+  //Level Joueur
+  perso.level:=1;
   //Pas d'arme
   perso.arme := aucun;
   //Pas d'armure
-  for i := 0 to 4 do perso.armures[i] := Obsidienne; 
+  for i := 0 to 4 do perso.armures[i] := aucun;
   //Ajouter 200 PO
   perso.argent:=200;
 end;
@@ -155,6 +177,12 @@ end;
 function getCoffre() : TCoffre;
 begin
   getCoffre := coffre;
+end;
+
+//Renvoie les compétences (lecture seul)
+function getCompetence() : Competence;
+begin
+  getCompetence := compet;
 end;
 
 //Transforme un Genre en chaine de caractères
@@ -250,7 +278,8 @@ end;
 function degatsRecu() : integer;
 begin
   degatsRecu := (4+Random(10))-encaissement(perso.armures);
-  perso.sante -= degatsRecu;
+  if degatsRecu < 0 then degatsRecu := 0
+  else perso.sante -= degatsRecu;
   if perso.sante < 0 then perso.sante := 0;
 end;
 
@@ -348,6 +377,36 @@ end;
 procedure setBuff(buff : bonus);
 begin
   perso.buff := buff;
+end;
+
+//Change l'expérience du joueur
+procedure setExperience(exp : Real);
+begin
+  perso.experience += exp;
+  if perso.experience > perso.experienceMax then
+  begin
+      perso.level += 1;
+      perso.experience -= perso.experienceMax;
+      perso.experienceMax := perso.experienceMax*1.5;
+  end; 
+end;
+
+//Apprend la compétence et retire ses pièces d'or
+procedure setCompetence(choix : integer);
+begin
+  case choix of
+    1 : if compet.boulefeu = FALSE then
+          begin
+            compet.boulefeu := TRUE; 
+            perso.argent -= 1000
+          end;
+    2 : if compet.eclair = FALSE then
+          begin
+            compet.eclair := TRUE; 
+            perso.argent -= 500
+          end;
+  end;
+
 end;
 
 end.

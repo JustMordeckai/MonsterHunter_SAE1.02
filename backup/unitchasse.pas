@@ -9,6 +9,17 @@ uses
 //----- FONCTIONS ET PROCEDURES -----
 function chasseHub() : typeLieu;
 
+
+
+
+
+
+
+
+
+
+
+
 implementation
 uses
     unitEquipement,unitPersonnage,unitMonstre,unitIHM,GestionEcran;
@@ -16,13 +27,15 @@ uses
 //Fonction gérant le combat contre un monstre
 function combat(numMonstre : integer) : typeLieu;
 var
-  monstre : TMonstre;        //Le monstre
+  monstre : TMonstre;              //Le monstre
   choix : string;
-  degatPerso : integer;      //Dégats réalisés par le perso
-  degatMonstre : integer;    //Dégats réalisés par le monstre
-  nbPartie : integer;        //Nb de parties récupérées sur le monstre
-  lancerBombe : integer;     //Etat du lancé de bombe (-1 pas fait, 0 échoué, 1 réussi)
-  boirePotion : integer;     //Etat de l'utilisateur de potion (-1 pas fait, 0 échoué, 1 réussi)
+  choixCompet : string;
+  degatPerso : integer;            //Dégats réalisés par le perso
+  degatMonstre : integer;          //Dégats réalisés par le monstre
+  nbPartie : integer;              //Nb de parties récupérées sur le monstre
+  lancerBombe : integer;           //Etat du lancé de bombe (-1 pas fait, 0 échoué, 1 réussi)
+  boirePotion : integer;           //Etat de l'utilisateur de potion (-1 pas fait, 0 échoué, 1 réussi)
+  lancerCompetence : Boolean;      //Etat du lancé de compétence (TRUE : Peut lancer une compétence; FALSE : Ne peut pas lancer de compétence)
 begin
    //On récupère une copie du monstre
    monstre := getMonstre(numMonstre);
@@ -48,13 +61,15 @@ begin
         lancerBombe := -1;
         boirePotion := -1;
 
-        if (choix = '1') or (choix = '2') or (choix = '3') or (choix = '4') then
+        if (choix = '1') or (choix = '2') or (choix = '3') or (choix = '4') or (choix = '5') then
         begin
              //Attaque classique
              if (choix = '1') then
              begin
                   //Dégat du joueur
                   degatPerso := degatsAttaque();
+                  //Buff de Critique
+                  if(getPersonnage().buff = Critique) AND (random(100) < 20) then degatPerso := degatPerso*2;
                   //Buff de Force
                   if(getPersonnage().buff = Force) then degatPerso+=1;
                   monstre.pv -= degatPerso;
@@ -72,7 +87,6 @@ begin
                   //Récupération de partie
                   nbPartie := random(2);
                   if(nbPartie > 0) and (degatPerso > 0) then ajouterPartie(numMonstre);
-
              end
              //Potion
              else if(choix = '3') then
@@ -95,6 +109,29 @@ begin
                        utiliserObjet(1);
                   end
                   else lancerBombe := 0;           //Echec
+             end;
+             //Compétence
+             else if(choix = '5') then
+             begin
+                    couleurTexte(Cyan);
+                    deplacerCurseurXY(30,15);write('Compétence disponible');
+                    couleurTexte(White);
+                    deplacerCurseurXY(30,18);write('0/ Changer d''attaque');
+                    if(getCompetence().boulefeu = TRUE) then deplacerCurseurXY(30,17);write('1/ Boule de Feu');
+                    if(getCompetence().eclair = TRUE) then deplacerCurseurXY(30,18);write('2/ Éclair');
+                    deplacerCurseurZoneResponse();
+                    readln(choixCompet);
+
+                    if choixCompet != '0' then
+                    begin
+                         case choixCompet of
+                              '1' : degatPerso := 50;
+                              '2' : degatPerso := 25;
+                         end;
+                         
+                         monstre.pv -= degatPerso;
+                         if(monstre.pv < 0) then monstre.pv := 0;
+                    end;
              end;
 
              //Contre attaque du monstre
@@ -205,6 +242,7 @@ begin
           deplacerCurseurZoneAction(4);write('     2/ Essayer de récupérer une partie du monstre');
           deplacerCurseurZoneAction(5);write('     3/ Utiliser une potion');
           deplacerCurseurZoneAction(6);write('     4/ Utiliser une bombe');
+          deplacerCurseurZoneAction(7);write('     5/ Utiliser une compétence');
         end;
         deplacerCurseurZoneResponse();
         readln(choix);

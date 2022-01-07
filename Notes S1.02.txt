@@ -18,9 +18,9 @@ Permettre au joueur de sélectionner les recettes aussi donc cantineHub.
 c'est celui qui m'a le plus marqué).
 
 PARTIE 2 :
-- Gagner de l'exp donc niveau. Niveau effecte capacités et objets fabricables à la forge
-- Compétence : Nouveau lieu, camps d'entrainement - AU MOINS 2 compétences (donc 2) / or. - EN COURS
-- Sauvegarde : possibilité de sauvegarder depuis chambre et chargeable depuis menu (Bastien)
+- Gagner de l'exp donc niveau. Niveau effecte capacités et objets fabricables à la forge - TERMINÉ
+- Compétence : Nouveau lieu, camps d'entrainement - AU MOINS 2 compétences (donc 2) / or. - TERMINÉ
+- Sauvegarde : possibilité de sauvegarder depuis chambre et chargeable depuis menu (Bastien) - EN COURS
 
 COMPTE RENDU - DOC TECHNIQUE
 1 Explication détaillée et justifiée des structures de données utilisées pour la modif

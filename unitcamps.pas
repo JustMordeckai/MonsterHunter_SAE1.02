@@ -26,6 +26,50 @@ implementation
 uses
   sysutils,unitPersonnage,unitIHM,GestionEcran;
 
+//Fonction exécutée pour afficher l'écran d'affichage des compétences
+//Renvoie le prochain lieu à visiter
+function choixCompetence() : typeLieu;
+var choix : string;
+  choixNumber : integer;
+begin
+  choix := '';
+  while (choix <> '0') do
+  begin
+    afficherInterfacePrincipale();
+    afficherLieu('Cantine de la ville de Brightwood');
+                                                        
+    deplacerCurseurXY(63,5);write('L''entraîneur vous proposent :');
+    couleurTexte(Cyan);
+    deplacerCurseurXY(30,7);write('Compétence');
+    deplacerCurseurXY(70,7);write('Decription');  
+    couleurTexte(White);
+    deplacerCurseurXY(30,9);write('1/ Boule de feu');
+    deplacerCurseurXY(70,9);write('Permets de lancer une boule de feu sur son adversaire (50 HP)');
+    deplacerCurseurXY(30,10);write('2/ Éclair'); 
+    deplacerCurseurXY(70,10);write('Permets d''abattre un éclair sur son adversaire (25 HP)');
+
+    deplacerCurseurZoneAction(1);write('Que souhaitez-vous faire ?');
+    deplacerCurseurZoneAction(3);write('     ?/ Apprendre une compétence (entrer son numéro)');
+
+    deplacerCurseurZoneAction(6);write('     0/ Retourner sur la place principale');
+
+    deplacerCurseurZoneResponse();
+    readln(choix);
+
+    //Si l'utilisateur saisit 0 => sortir
+    if(choix = '0') then choixCompetence := ville
+    //Si l'utilisateur saisit un nombre, convertir choix (string) en choixNumber (integer)
+    else if(TryStrToInt(choix,choixNumber)) then
+    begin
+         //Si la compétence existe, l'apprendre
+         if(choixNumber > 0) and (choixNumber < 3) then setCompetence(choixNumber);
+    end;
+  end;
+
+
+end;
+
+
 //Fonction exécutée à l'arrivée dans le camps d'entrainement
 //Renvoie le prochain lieu à visiter
 function campsHUB() : typeLieu;
@@ -50,18 +94,18 @@ begin
 
     couleurTexte(White);
 
-    deplacerCurseurZoneAction(1);write('Quel compétence voulez-vous apprendre ?');
-    deplacerCurseurZoneAction(3);write('     1/ #Compétence 1');
-    deplacerCurseurZoneAction(4);write('     2/ #Compétence 2');
+    deplacerCurseurZoneAction(1);write('Que souhaitez-vous faire ?');
+    deplacerCurseurZoneAction(3);write('     1/ Apprendre une compétence');
 
-    deplacerCurseurZoneAction(6);write('     0/ Retourner sur la place principale');
+    deplacerCurseurZoneAction(5);write('     0/ Retourner sur la place principale');
 
     deplacerCurseurZoneResponse();
     readln(choix);
   end;
 
   case choix of
-       '0' : campsHUB := ville;
+      '0' : campsHUB := ville;
+      '1' : choixCompetence();
   end;
 
 end;

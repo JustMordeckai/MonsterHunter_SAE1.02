@@ -27,24 +27,32 @@ uses
 //Fonction gérant le combat contre un monstre
 function combat(numMonstre : integer) : typeLieu;
 var
-  monstre : TMonstre;        //Le monstre
+  monstre : TMonstre;              //Le monstre
   choix : string;
-  degatPerso : integer;      //Dégats réalisés par le perso
-  degatMonstre : integer;    //Dégats réalisés par le monstre
-  nbPartie : integer;        //Nb de parties récupérées sur le monstre
-  lancerBombe : integer;     //Etat du lancé de bombe (-1 pas fait, 0 échoué, 1 réussi)
-  boirePotion : integer;     //Etat de l'utilisateur de potion (-1 pas fait, 0 échoué, 1 réussi)
+  choixCompet : string;
+  degatPerso : integer;            //Dégats réalisés par le perso
+  degatCompet : integer;           //Dégats réalisés par les compétences du perso 
+  degatMonstre : integer;          //Dégats réalisés par le monstre
+  expRecompense : Real;         //Expérience pouvant être gagné par le joueur s'il gagne le combat
+  coefRecompense : Real;           //Coeficient aléatoire permettant de calculer la récompense d'expérience
+  nbPartie : integer;              //Nb de parties récupérées sur le monstre
+  lancerBombe : integer;           //Etat du lancé de bombe (-1 pas fait, 0 échoué, 1 réussi)
+  boirePotion : integer;           //Etat de l'utilisateur de potion (-1 pas fait, 0 échoué, 1 réussi)
+  lancerCompetence : Boolean;      //Etat du lancé de compétence (TRUE : Peut lancer une compétence; FALSE : Ne peut pas lancer de compétence)
 begin
    //On récupère une copie du monstre
    monstre := getMonstre(numMonstre);
+   coefRecompense := Random(3)+1;
+   expRecompense := coefRecompense * monstre.pv;
    choix := ''; 
+   lancerCompetence := TRUE;
 
    //Affichage initial
    afficherInterfacePrincipale();
    afficherLieu('Combat contre un '+nomMonstre(monstre.typeM));
 
    deplacerCurseurXY(30,7);write('Un monstre apparait devant vous ! C''est un '+nomMonstre(monstre.typeM));
-   deplacerCurseurXY(30,8);write('Vous vous mettez en position pour le combattre !');
+   deplacerCurseurXY(30,8);write('Vous vous mettez en position pour le combattre !');write(coefRecompense,expRecompense);
 
    deplacerCurseurXY(30,10);write('  Nom du monstre : ' +nomMonstre(monstre.typeM));
    deplacerCurseurXY(30,11);write('Santé du monstre : ',monstre.pv);
@@ -58,8 +66,9 @@ begin
         nbPartie := -1;
         lancerBombe := -1;
         boirePotion := -1;
+        degatCompet := -1;
 
-        if (choix = '1') or (choix = '2') or (choix = '3') or (choix = '4') then
+        if (choix = '1') or (choix = '2') or (choix = '3') or (choix = '4') or (choix = '5') then
         begin
              //Attaque classique
              if (choix = '1') then
@@ -70,7 +79,7 @@ begin
                   if(getPersonnage().buff = Critique) AND (random(100) < 20) then degatPerso := degatPerso*2;
                   //Buff de Force
                   if(getPersonnage().buff = Force) then degatPerso+=1;
-                  monstre.pv -= degatPerso;
+                  monstre.pv -= degatPerso + getLevel()*2;
                   if(monstre.pv < 0) then monstre.pv := 0;
              end
              //Récupération de parties
@@ -107,6 +116,42 @@ begin
                        utiliserObjet(1);
                   end
                   else lancerBombe := 0;           //Echec
+             end
+             //Compétence
+             else if(choix = '5') then
+             begin
+                    if (lancerCompetence = TRUE) then
+                    begin
+                         couleurTexte(Cyan);
+                         deplacerCurseurXY(30,20);write('Compétence disponible');
+                         couleurTexte(White);
+
+                         deplacerCurseurXY(30,22);write('0/ Poing de Fer (Basique)');
+                         
+                         if(getCompetence().boulefeu = TRUE) then
+                         begin 
+                         deplacerCurseurXY(30,23);write('1/ Boule de Feu');
+                         end;
+
+                         if(getCompetence().eclair = TRUE) then 
+                         begin
+                         deplacerCurseurXY(30,24);write('2/ Éclair');
+                         end;
+
+                         deplacerCurseurZoneResponse();
+                         readln(choixCompet);
+
+                         case choixCompet of
+                              '0' : degatCompet := 10;
+                              '1' : if(getCompetence().boulefeu = TRUE) then degatCompet := 50 else degatCompet := 0;
+                              '2' : if(getCompetence().eclair = TRUE) then degatCompet := 25 else degatCompet := 0;
+                         end;
+
+                         monstre.pv -= degatCompet;
+                         if(monstre.pv < 0) then monstre.pv := 0;
+                         lancerCompetence := FALSE;
+                    end
+                    else degatCompet := 0; // Lancer de compétence impossible
              end;
 
              //Contre attaque du monstre
@@ -180,7 +225,20 @@ begin
                 end
                 else if(lancerBombe = 1) then
                 begin
-                     deplacerCurseurXY(30,15);write('Vous lanvez une bombe sur le monstre qui est étourdi !');
+                     deplacerCurseurXY(30,15);write('Vous lancez une bombe sur le monstre qui est étourdi !');
+                end;
+            end;
+            //Lancer une compétence
+            if(degatCompet>-1) then
+            begin  
+                couleurTexte(cyan);
+                if(degatCompet = 0) then
+                begin
+                     deplacerCurseurXY(30,15);write('Vous essayez de lancer une compétence, mais vous ne la connaissez pas ou êtes épuisés !');
+                end
+                else
+                begin
+                     deplacerCurseurXY(30,15);write('Vous lancez une compétence sur le monstre et lui faites ',degatCompet,' point(s) de dégats');
                 end;
             end;
             //Affichage des dégats du monstres
@@ -217,6 +275,7 @@ begin
           deplacerCurseurZoneAction(4);write('     2/ Essayer de récupérer une partie du monstre');
           deplacerCurseurZoneAction(5);write('     3/ Utiliser une potion');
           deplacerCurseurZoneAction(6);write('     4/ Utiliser une bombe');
+          deplacerCurseurZoneAction(7);write('     5/ Utiliser une compétence');
         end;
         deplacerCurseurZoneResponse();
         readln(choix);
@@ -227,6 +286,7 @@ begin
          recupererPrime(monstre.prime);
          setBuff(AucunB);
          combat := expedition;
+         setExperience(expRecompense);
    end
    //Mort
    else 
